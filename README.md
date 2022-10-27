@@ -3,6 +3,8 @@
 # Table-of-Contents
   * [Deployed URL](#deployed-url)
   * [Workflow](#workflow)
+      * [UI Design](#ui-design)
+      * [Database Design](#database-design)
   * [Git Repo](#git-repo)
   * [Dependency](#dependency)
   * [UserStory](#userstory)
@@ -18,6 +20,16 @@ ENTER HERE
 
 ```
 ## [Workflow](#table-of-contents)
+1. Log in
+![Image at  Log in workflow](./images/LogIn.png)
+2. Search
+![Image at  search in workflow](./images/Search.png)
+
+### [UI Design](#table-of-contents)
+
+### [Database Design](#table-of-contents)
+![Image at  database schema](./images/dbschema.png)
+
 ## [Git Repo](#table-of-contents)
 ```
 https://github.com/kabirfaisal1/shoppers.git
@@ -44,4 +56,3 @@ ENTER HERE
 ```
 
 ## [Screenshots](#table-of-contents)
-![Image at node questions](./images/appPhoto.png)
