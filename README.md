@@ -17,7 +17,12 @@
 ## [Deployed URL](#table-of-contents)
 ```
 ENTER HERE
-
+```
+To Open POC
+1. CD to the shoppers project
+2. run
+```
+  open -a 'google chrome' POS.html
 ```
 ## [Workflow](#table-of-contents)
 1. Log in
