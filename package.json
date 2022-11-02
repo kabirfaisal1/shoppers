@@ -1,5 +1,5 @@
 {
-  "name": "potluck-party",
+  "name": "shoppers",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,9 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "express-handlebars": "^3.0.0",
-    "nodemon": "^2.0.20"
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "sequelize": "^6.25.3"
   },
   "devDependencies": {
     "cypress": "^10.11.0"

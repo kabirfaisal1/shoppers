@@ -45,7 +45,14 @@ https://github.com/kabirfaisal1/shoppers.git
 ## [Dependency](#table-of-contents)
 ```
     1. node.js (npm install -g npm) on your system
-    2. Express.js
+    2. npm i mysql
+    3. npm i express
+    4. npm i path
+    5. npm i dotenv
+    6. npm i sequelize
+
+    opt.
+    - npm i nodemon (help you test live without killing server. CLI: nodemon server.js)
 ```
 ## [User Story](#table-of-contents)
 ```
