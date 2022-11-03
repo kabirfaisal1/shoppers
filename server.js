@@ -1,5 +1,6 @@
 // const path = require('path');
 const express = require('express');
+const routes = require('./controllers');
 // // Import express-session
 // const session = require('express-session');
 // const exphbs = require('express-handlebars');
@@ -11,6 +12,10 @@ const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
 // const routes = require('./controllers');
 
+//express middleware -------------------------
+app.use(routes);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //CONNECT TO MYSQL
 // turn on connection to db and server
