@@ -3,10 +3,14 @@ const router = require('express').Router();
 const { User, Search } = require('../../models');
 
 //USER ROUTES: /api/users ======================================
-//get all users: /api/users/
+//get all users, includes searches: /api/users/
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: ['id','username','email','password','account_status']
+        attributes: ['id','username','email','password','account_status'],
+        include: {
+            model: Search,
+            attributes: ['id','product_name']
+        }
     })
         .then(dbData => res.json(dbData))
         .catch(err => {
@@ -15,11 +19,15 @@ router.get('/', (req, res) => {
         });
 });
 
-//get user by id: /api/users/:id
+//get user by id, includes searches: /api/users/:id
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: ['id','username','email','password','account_status'],
-        where: { id: req.params.id }
+        where: { id: req.params.id },
+        include: {
+            model: Search,
+            attributes: ['id','product_name']
+        }
     })
         .then(dbData => {
             if (!dbData) {
