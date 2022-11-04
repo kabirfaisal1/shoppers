@@ -1,7 +1,7 @@
 //DECLARATIONS: router, model routes------------------
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
-const searchRoutes = require('./search-routes');
+const searchRoutes = require('./id-search-routes');
 
 //set router ---------------------------------
 router.use('/users', userRoutes);
