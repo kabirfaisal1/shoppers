@@ -49,16 +49,70 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbData => res.json(dbData))
+        .then(dbData => {
+            //session.save() declare variables for the user session here
+            //I think ^
+            req.session.save(() => {
+                req.session.user_id = dbData.id;
+                req.session.email = dbData.email;
+                req.session.loggedIn = true;
+
+                res.json(dbData);
+            });
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
+//create user login: /api/users/login
+//EXPECTS FROM BODY: {email: 'userEmail@email.com', password: 'usersPassword'}
+router.post('/login', (req,res) => {
+    User.findOne({
+        where: { email: req.body.email }
+    })
+        .then(dbData => {
+            if (!dbData) {
+                res.status(400).json({ message: 'No user with that email address!' });
+                return;
+            }
+            //check the password in req.body
+            const validPw = dbData.checkPassword(req.body.password);
+            if (!validPw) {
+                res.status(400).json({ message: 'Invalid Password!' });
+                return;
+            }
+            //save user's session
+            req.session.save(() => {
+                req.session.user_id = dbData.id;
+                req.session.email = dbData.email;
+                req.session.loggedIn = true;
+
+                res.json({ user: dbData, message: "You are logged in!" });
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+//user logout: /api/users/logout
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 //update user: /api/users/:id
 router.put('/:id', (req, res) => {
     User.update(req.body, {
+        individualHooks: true,
         where: { id: req.params.id }
     })
         .then(dbData => {
