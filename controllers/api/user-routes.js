@@ -112,6 +112,7 @@ router.post('/logout', (req, res) => {
 //update user: /api/users/:id
 router.put('/:id', (req, res) => {
     User.update(req.body, {
+        individualHooks: true,
         where: { id: req.params.id }
     })
         .then(dbData => {
