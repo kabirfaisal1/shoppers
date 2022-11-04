@@ -2,12 +2,10 @@
 //sequelize, sequelizeStore ----------------------------
 const path = require('path');
 const express = require('express');
-const routes = require('./controllers');
+
 // // Import express-session
 //const session = require('express-session');
 
-
-const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
 const routes = require('./controllers');
 
