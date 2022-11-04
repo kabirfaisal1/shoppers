@@ -2,15 +2,18 @@
 const express = require('express');
 const routes = require('./controllers');
 // // Import express-session
-// const session = require('express-session');
-// const exphbs = require('express-handlebars');
+//const session = require('express-session');
+const exphbs = require('express-handlebars');
 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
-// const routes = require('./controllers');
+const routes = require('./controllers');
+const hbs = exphbs.create();
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 //express middleware -------------------------
 app.use(express.json());
