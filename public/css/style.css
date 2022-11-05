@@ -80,14 +80,23 @@ html {
   width: 18rem;
   margin: 20px;
   border-radius: 25px;
-  justify-content: center;
+
  }
- h5{
+ h5, p, a{
   text-align: center;
+  justify-content: flex;
  }
 
 .card-img-top{
   border-radius: 25px;
   margin-bottom: 5px;
   padding-bottom: 3px;
+}
+a{
+
+  margin-left: 20px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+
 }

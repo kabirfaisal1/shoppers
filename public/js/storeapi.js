@@ -1,4 +1,4 @@
-var Target_Token = '4324A15C75444BB7AA69766FA38667EF'
+
 var searchInputEL = document.querySelector("search-fild");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
@@ -62,15 +62,27 @@ function  cratecard(){
     imgEl.classList.add('card-img-top');
     imgEl.src=`${tartarget_API_Endpoint[i].product_img}`;;
    //adding card body
+   //header
    var addcardboyEl = document.createElement('card-body');
    var addcardheaderEL= document.createElement('h5');
    addcardheaderEL.textContent = tartarget_API_Endpoint[i].title;
- 
-   addDivEl.appendChild(imgEl);
-   addDivEl.appendChild(addcardboyEl);
-   addcardboyEl.appendChild(addcardheaderEL);
-   search_resultsEl.appendChild(addDivEl);
-   console.log(search_resultsEl);
+     //price
+     var addcardpriceEL= document.createElement('p');
+     addcardpriceEL.textContent = `Sale price: ${tartarget_API_Endpoint[i].sale_price} \nprimary price ${tartarget_API_Endpoint[i].primary_price}`
+     //link
+     var addcardLink = document.createElement('a');
+     addcardLink.setAttribute("href", TestDummytartarget_API_Endpoint[i].product_Link);
+     addcardLink.setAttribute("target", "_blank");
+     addcardLink.textContent= "View on Site"
+  
+    
+      addDivEl.appendChild(imgEl);
+      addDivEl.appendChild(addcardboyEl);
+      addcardboyEl.appendChild(addcardheaderEL);
+      addcardboyEl.appendChild(addcardpriceEL);
+      addcardboyEl.append(addcardLink);
+      search_resultsEl.appendChild(addDivEl);
+      console.log(search_resultsEl);
   }
 }
 
@@ -86,7 +98,7 @@ function stud(){
                 "1.Kabir", "2.Faisal", "3.WOrld", "4.Hello", "5.Sunny", "6.Cold", "7.Window"
               ], 
               product_Link: [
-                "www.google.com","www.google.com","www.google.com","www.google.com","www.google.com","www.google.com","www.google.com"
+                "https://www.google.com/","https://www.google.com/","https://www.google.com/","https://www.google.com/","https://www.google.com/","https://www.google.com/","https://www.google.com/"
               ],
               primary_price: ["11.00","12.00","13.00","14.00","15.00","16.00"],
               sale_price: ["1.00","2.00","3.00","4.00","5.00","6.00"]
@@ -101,15 +113,26 @@ function stud(){
     console.log(TestDummytartarget_API_Endpoint.product_img[i]);
     imgEl.src= TestDummytartarget_API_Endpoint.product_img[i];
   
-
     //adding card body
+    //Header
     var addcardboyEl = document.createElement('card-body');
     var addcardheaderEL= document.createElement('h5');
     addcardheaderEL.textContent = TestDummytartarget_API_Endpoint.title[i];
+   //price
+   var addcardpriceEL= document.createElement('p');
+   addcardpriceEL.textContent = `Sale price: ${TestDummytartarget_API_Endpoint.sale_price[i]} \nprimary price ${TestDummytartarget_API_Endpoint.primary_price[i]}`
+   //link
+   var addcardLink = document.createElement('a');
+   addcardLink.setAttribute("href", TestDummytartarget_API_Endpoint.product_Link[i]);
+   addcardLink.setAttribute("target", "_blank");
+   addcardLink.textContent= "View on Site"
+
   
     addDivEl.appendChild(imgEl);
     addDivEl.appendChild(addcardboyEl);
     addcardboyEl.appendChild(addcardheaderEL);
+    addcardboyEl.appendChild(addcardpriceEL);
+    addcardboyEl.append(addcardLink);
     search_resultsEl.appendChild(addDivEl);
     console.log(search_resultsEl);
 
