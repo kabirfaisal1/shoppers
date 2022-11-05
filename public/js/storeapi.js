@@ -61,9 +61,16 @@ function  cratecard(){
     var imgEl = document.createElement('img')
     imgEl.classList.add('card-img-top');
     imgEl.src=`${tartarget_API_Endpoint[i].product_img}`;;
-  
-    addDivEl.appendChild(imgEl)
-    search_resultsEl.appendChild(addDivEl);
+   //adding card body
+   var addcardboyEl = document.createElement('card-body');
+   var addcardheaderEL= document.createElement('h5');
+   addcardheaderEL.textContent = tartarget_API_Endpoint[i].title;
+ 
+   addDivEl.appendChild(imgEl);
+   addDivEl.appendChild(addcardboyEl);
+   addcardboyEl.appendChild(addcardheaderEL);
+   search_resultsEl.appendChild(addDivEl);
+   console.log(search_resultsEl);
   }
 }
 
@@ -75,21 +82,34 @@ function stud(){
                 "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk","https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk",
                  "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk", "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk",
               ],
-              title:["1.Kabir", "2.Faisal", "3.WOrld", "4.Hello"], 
+              title:[
+                "1.Kabir", "2.Faisal", "3.WOrld", "4.Hello", "5.Sunny", "6.Cold", "7.Window"
+              ], 
               product_Link: [
-                "www.google.com","www.google.com","www.google.com","www.google.com"
+                "www.google.com","www.google.com","www.google.com","www.google.com","www.google.com","www.google.com","www.google.com"
               ],
-              primary_price: ["11.00","12.00","13.00","14.00"],
-              sale_price: ["1.00","2.00","3.00","4.00"]
+              primary_price: ["11.00","12.00","13.00","14.00","15.00","16.00"],
+              sale_price: ["1.00","2.00","3.00","4.00","5.00","6.00"]
              }
-  for (var i = 0; i < TestDummytartarget_API_Endpoint.length; i++) {
+  for (var i = 0; i < TestDummytartarget_API_Endpoint.product_img.length; i++) {
+    //adding main card
     var addDivEl = document.createElement('div');
     addDivEl.classList.add('card');
+    //adding img
     var imgEl = document.createElement('img')
     imgEl.classList.add('card-img-top');
-    imgEl.src=`${TestDummytartarget_API_Endpoint[i]}`;;
+    console.log(TestDummytartarget_API_Endpoint.product_img[i]);
+    imgEl.src= TestDummytartarget_API_Endpoint.product_img[i];
   
-    addDivEl.appendChild(imgEl)
+
+    //adding card body
+    var addcardboyEl = document.createElement('card-body');
+    var addcardheaderEL= document.createElement('h5');
+    addcardheaderEL.textContent = TestDummytartarget_API_Endpoint.title[i];
+  
+    addDivEl.appendChild(imgEl);
+    addDivEl.appendChild(addcardboyEl);
+    addcardboyEl.appendChild(addcardheaderEL);
     search_resultsEl.appendChild(addDivEl);
     console.log(search_resultsEl);
 
