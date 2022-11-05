@@ -76,4 +76,10 @@ html {
   footer, header{
     background-color: #A084CA;
   }
- 
+ .card{
+  width: 18rem;
+  margin: 20px;
+  border-radius: 25px;
+ }
+
+
