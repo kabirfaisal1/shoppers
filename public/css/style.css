@@ -106,3 +106,9 @@ margin-bottom: 30px;
   height: 2em;
   margin: 20px;
 }
+#search-Error{
+  font-size: xx-large;
+  color: red;
+  text-align: center;
+  visibility: hidden;
+}
