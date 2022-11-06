@@ -1,13 +1,13 @@
-var Target_Token;
+var Target_Token="4324A15C75444BB7AA69766FA38667EF";
 var searchInputEL = document.querySelector("search-fild");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
 
 submitButtonEl.addEventListener('click',()=>{
 
-   //target_API_Endpoint();
+   target_API_Endpoint();
 
- stud();
+ //stud();
 
 
   
@@ -24,25 +24,27 @@ function target_API_Endpoint(){
     //   'rating': 'four_star'
     // }
     // console.log(params);
-  var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&output=json`;
+  var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&rating=four_star`;
   //  var queryItem = `https://api.redcircleapi.com/request?${params}`;
   fetch(queryItem, { method: 'GET' }) //fetching all related area for current location
   .then((response) => response.json()).then((data) => {
         var i =0
        do{
         var target_search_Results={
-            // product_img: JSON.stringify(data.search_results[i].product['main_image']),
-            product_img: "https://hackaday.com/wp-content/uploads/2011/08/temporary-image.gif",
+             product_img: JSON.stringify(data.search_results[i].product['main_image']),
+            //product_img: "https://hackaday.com/wp-content/uploads/2011/08/temporary-image.gif",
             title: JSON.stringify(data.search_results[i].product['title']),
             product_Link: JSON.stringify(data.search_results[i].product['link']),
             primary_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
             sale_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
-        }
+            product_rating: JSON.stringify(data.search_results[i].product['rating'])
+          }
+        console.log(target_search_Results.product_img)
         tartarget_API_Endpoint.push(target_search_Results);
          i++;
        }
        while(i<data.search_results.length)
-       console.log(tartarget_API_Endpoint)
+      //  console.log(tartarget_API_Endpoint)
        cratecard();
 
     })
@@ -60,26 +62,33 @@ function  cratecard(){
     addDivEl.classList.add('card');
     var imgEl = document.createElement('img')
     imgEl.classList.add('card-img-top');
-    imgEl.src=`${tartarget_API_Endpoint[i].product_img}`;;
+    imgEl.setAttribute("src", tartarget_API_Endpoint[i].product_img.replaceAll('"', ''));
    //adding card body
    //header
    var addcardboyEl = document.createElement('card-body');
    var addcardheaderEL= document.createElement('h5');
-   addcardheaderEL.textContent = tartarget_API_Endpoint[i].title;
+   addcardheaderEL.textContent = tartarget_API_Endpoint[i].title.replaceAll('"', '');
      //price
      var addcardpriceEL= document.createElement('p');
-     addcardpriceEL.textContent = `Sale price: ${tartarget_API_Endpoint[i].sale_price} \nprimary price ${tartarget_API_Endpoint[i].primary_price}`
+     addcardpriceEL.textContent = `Sale price: ${tartarget_API_Endpoint[i].sale_price.replaceAll('"', '')} \nprimary price ${tartarget_API_Endpoint[i].primary_price.replaceAll('"', '')}`
      //link
      var addcardLink = document.createElement('a');
-     addcardLink.setAttribute("href", TestDummytartarget_API_Endpoint[i].product_Link);
+     addcardLink.setAttribute("href", tartarget_API_Endpoint[i].product_Link.replaceAll('"', ''));
      addcardLink.setAttribute("target", "_blank");
      addcardLink.textContent= "View on Site"
-  
-    
+     //rating
+
+      var ratingImg = document.createElement('img');
+      ratingImg.setAttribute("id", "rating");
+      ratingImg.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
+      console.log(tartarget_API_Endpoint[i].product_ratin)
+      ratingImg.textContent = tartarget_API_Endpoint[i].product_rating;
+
       addDivEl.appendChild(imgEl);
       addDivEl.appendChild(addcardboyEl);
       addcardboyEl.appendChild(addcardheaderEL);
       addcardboyEl.appendChild(addcardpriceEL);
+      addcardboyEl.appendChild(ratingImg);
       addcardboyEl.append(addcardLink);
       search_resultsEl.appendChild(addDivEl);
       console.log(search_resultsEl);
@@ -89,7 +98,7 @@ function  cratecard(){
 function stud(){
   var TestDummytartarget_API_Endpoint={
               product_img: [
-                "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk", 
+                "https://target.scene7.com/is/image/Target/GUEST_15916c73-9548-498f-a378-f67cb42ccd06", 
                 "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk", 
                 "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk","https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk",
                  "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk", "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-9.jpg?itok=AZn0PDgk",
