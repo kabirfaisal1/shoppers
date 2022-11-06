@@ -101,3 +101,8 @@ margin-bottom: 30px;
 #rating{
   font-size: 2em;
 }
+#ratingIcon{
+  width: 2em;
+  height: 2em;
+  margin: 20px;
+}

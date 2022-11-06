@@ -1,46 +1,39 @@
-var Target_Token ;
+var Target_Token="4324A15C75444BB7AA69766FA38667EF" ;
 var searchInputEL = document.querySelector("search-fild");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
 
 submitButtonEl.addEventListener('click',()=>{
 
-   //target_API_Endpoint();
+   target_API_Endpoint();
 
- stud();
+ //stud();
 
 
   
 });
-var tartarget_API_Endpoint= [];
+var target_search_Results= [];
 var walmart_API_Endpoint= [];
 function target_API_Endpoint(){
 
-    // // set up the request parameters
-    // const params = {
-    //   'api_key': Target_Token,
-    //   'search_term': 'xbox',
-    //   'type': 'search',
-    //   'rating': 'four_star'
-    // }
-    // console.log(params);
+
   var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&rating=five_star&page=1&include_out_of_stock=false`;
   //  var queryItem = `https://api.redcircleapi.com/request?${params}`;
   fetch(queryItem, { method: 'GET' }) //fetching all related area for current location
   .then((response) => response.json()).then((data) => {
         var i =0
        do{
-        var target_search_Results={
-             product_img: JSON.stringify(data.search_results[i].product['main_image']),
-            //product_img: "https://hackaday.com/wp-content/uploads/2011/08/temporary-image.gif",
-            title: JSON.stringify(data.search_results[i].product['title']),
-            product_Link: JSON.stringify(data.search_results[i].product['link']),
-            primary_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
-            sale_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
-            product_rating: JSON.stringify(data.search_results[i].product['rating'])
-          }
-        console.log(target_search_Results.product_img)
-        tartarget_API_Endpoint.push(target_search_Results);
+        var target_search_Result={
+          product_img: JSON.stringify(data.search_results[i].product['main_image']),
+         title: JSON.stringify(data.search_results[i].product['title']),
+         product_Link: JSON.stringify(data.search_results[i].product['link']),
+         primary_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
+         sale_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
+         product_rating: JSON.stringify(data.search_results[i].product['rating'])
+       };
+      
+        console.log(target_search_Result.product_img)
+        target_search_Results.push(target_search_Result);
          i++;
        }
        while(i<data.search_results.length)
@@ -79,9 +72,10 @@ function  cratecard(){
      //rating
 
       var ratingAreaEL = document.createElement('p');
-      // var ratingIconEL = document.createElement('i');
+      var ratingIconEL = document.createElement('img');
+      ratingIconEL.setAttribute("id", "ratingIcon");
       ratingAreaEL.setAttribute("id", "rating");
-      ratingAreaEL.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
+      ratingIconEL.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
       console.log(tartarget_API_Endpoint[i].product_ratin)
       ratingAreaEL.textContent = tartarget_API_Endpoint[i].product_rating;
 
@@ -89,7 +83,7 @@ function  cratecard(){
       addDivEl.appendChild(addcardboyEl);
       addcardboyEl.appendChild(addcardheaderEL);
       addcardboyEl.appendChild(addcardpriceEL);
-      // ratingAreaEL.appendChild(ratingIconEL);
+       ratingAreaEL.appendChild(ratingIconEL);
       addcardboyEl.appendChild(ratingAreaEL);
       addcardboyEl.append(addcardLink);
       search_resultsEl.appendChild(addDivEl);
