@@ -99,7 +99,5 @@ margin-bottom: 30px;
 
 }
 #rating{
-  width: 100px;
-    height: 100px;
-    text-size-adjust: 30px;
+  font-size: 2em;
 }

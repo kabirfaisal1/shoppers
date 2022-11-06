@@ -1,13 +1,13 @@
-var Target_Token;
+var Target_Token = '4324A15C75444BB7AA69766FA38667EF';
 var searchInputEL = document.querySelector("search-fild");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
 
 submitButtonEl.addEventListener('click',()=>{
 
-   //target_API_Endpoint();
+   target_API_Endpoint();
 
- stud();
+ //stud();
 
 
   
@@ -24,7 +24,7 @@ function target_API_Endpoint(){
     //   'rating': 'four_star'
     // }
     // console.log(params);
-  var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&rating=four_star`;
+  var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&rating=five_star&page=1&include_out_of_stock=false`;
   //  var queryItem = `https://api.redcircleapi.com/request?${params}`;
   fetch(queryItem, { method: 'GET' }) //fetching all related area for current location
   .then((response) => response.json()).then((data) => {
@@ -78,17 +78,19 @@ function  cratecard(){
      addcardLink.textContent= "View on Site"
      //rating
 
-      var ratingImg = document.createElement('img');
-      ratingImg.setAttribute("id", "rating");
-      ratingImg.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
+      var ratingAreaEL = document.createElement('p');
+      // var ratingIconEL = document.createElement('i');
+      ratingAreaEL.setAttribute("id", "rating");
+      ratingAreaEL.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
       console.log(tartarget_API_Endpoint[i].product_ratin)
-      ratingImg.textContent = tartarget_API_Endpoint[i].product_rating;
+      ratingAreaEL.textContent = tartarget_API_Endpoint[i].product_rating;
 
       addDivEl.appendChild(imgEl);
       addDivEl.appendChild(addcardboyEl);
       addcardboyEl.appendChild(addcardheaderEL);
       addcardboyEl.appendChild(addcardpriceEL);
-      addcardboyEl.appendChild(ratingImg);
+      // ratingAreaEL.appendChild(ratingIconEL);
+      addcardboyEl.appendChild(ratingAreaEL);
       addcardboyEl.append(addcardLink);
       search_resultsEl.appendChild(addDivEl);
       console.log(search_resultsEl);
