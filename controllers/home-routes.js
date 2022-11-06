@@ -5,7 +5,10 @@ const { User, Search } = require('../models');
 
 //HOME ROUTES ===============================================
 router.get('/', (req, res) => {
-    res.render('homepage');
+    console.log('****************');
+    console.log(req.session);
+    console.log('****************');
+    res.render('homepage', {loggedIn: req.session.loggedIn});
 });
 
 router.get('/login', (req, res) =>{
