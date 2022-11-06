@@ -1,13 +1,13 @@
-var Target_Token = '4324A15C75444BB7AA69766FA38667EF';
+var Target_Token ;
 var searchInputEL = document.querySelector("search-fild");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
 
 submitButtonEl.addEventListener('click',()=>{
 
-   target_API_Endpoint();
+   //target_API_Endpoint();
 
- //stud();
+ stud();
 
 
   
