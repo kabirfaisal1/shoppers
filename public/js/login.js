@@ -37,9 +37,9 @@ async function loginHandler(event) {
   
       // Response.ok contains a boolean value indicating whether the response was successful
       // So, this if statement translates to if the response was successful, then the browser will replace the current URL 
-      // (document.location.replace) with the URL of the dashboard page
+      // (document.location.replace) with the URL of the home page
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/');
         // if the response wasn't successful, user will get an alert message indicating their info was incorrect 
       } else {
         alert(response.statusText);
@@ -55,7 +55,7 @@ async function loginHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
   
     if (username && email && password) {
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/users/', {
         method: 'post',
         body: JSON.stringify({
           username,
@@ -66,7 +66,7 @@ async function loginHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
