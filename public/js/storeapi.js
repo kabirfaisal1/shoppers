@@ -9,14 +9,16 @@ submitButtonEl.addEventListener('click',()=>{
 if(searchInputEL.value.trim() !=""){
 
   searchErrorEL.style.setProperty("visibility", "hidden");
-   target_API_Endpoint(searchInputEL.value.trim());
+  
+  target_API_Endpoint(searchInputEL.value.trim());
+    //stud();
   }
   else{
     searchErrorEL.style.setProperty("visibility", "visible");
     
   }
 
- //stud();
+
 
 
   
