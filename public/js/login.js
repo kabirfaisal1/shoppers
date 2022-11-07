@@ -3,8 +3,8 @@
 async function loginFormHandler(event) {
     event.preventDefault();
   
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const email = document.querySelector('#email-input-login').value.trim();
+    const password = document.querySelector('#password-input-login').value.trim();
   
     if (email && password) {
       const response = await fetch('/api/users/login', {
@@ -54,7 +54,3 @@ async function loginFormHandler(event) {
   
   document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
-  // MAKE fetch call to is the one in user-routes with the '/login' endpoint.
-//create user login: /api/users/login
-//EXPECTS FROM BODY: {email: 'userEmail@email.com', password: 'usersPassword'}
-// router.post('/login', (req,res) => {
