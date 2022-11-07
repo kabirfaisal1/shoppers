@@ -1,11 +1,20 @@
 var Target_Token="4324A15C75444BB7AA69766FA38667EF" ;
-var searchInputEL = document.querySelector("search-fild");
+var searchInputEL = document.querySelector("#search-fild");
+var searchErrorEL = document.querySelector("#search-Error");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
 
 submitButtonEl.addEventListener('click',()=>{
+  console.log(searchInputEL.value.trim());
+if(searchInputEL.value.trim() !=""){
 
-   target_API_Endpoint();
+  searchErrorEL.style.setProperty("visibility", "hidden");
+   target_API_Endpoint(searchInputEL.value.trim());
+  }
+  else{
+    searchErrorEL.style.setProperty("visibility", "visible");
+    
+  }
 
  //stud();
 
@@ -14,10 +23,9 @@ submitButtonEl.addEventListener('click',()=>{
 });
 var target_search_Results= [];
 var walmart_API_Endpoint= [];
-function target_API_Endpoint(){
+function target_API_Endpoint(search){
 
-
-  var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&rating=five_star&page=1&include_out_of_stock=false`;
+  var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=${search}&type=search&rating=five_star&page=1&include_out_of_stock=false`;
   //  var queryItem = `https://api.redcircleapi.com/request?${params}`;
   fetch(queryItem, { method: 'GET' }) //fetching all related area for current location
   .then((response) => response.json()).then((data) => {
@@ -31,13 +39,11 @@ function target_API_Endpoint(){
          sale_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
          product_rating: JSON.stringify(data.search_results[i].product['rating'])
        };
-      
-        console.log(target_search_Result.product_img)
         target_search_Results.push(target_search_Result);
          i++;
        }
        while(i<data.search_results.length)
-      //  console.log(tartarget_API_Endpoint)
+      console.log(target_search_Results)
        cratecard();
 
     })
@@ -50,23 +56,24 @@ function target_API_Endpoint(){
 
 function  cratecard(){
 
-  for (var i = 0; i < tartarget_API_Endpoint.length; i++) {
+  for (var i = 0; i < target_search_Results.length; i++) {
     var addDivEl = document.createElement('div');
     addDivEl.classList.add('card');
     var imgEl = document.createElement('img')
     imgEl.classList.add('card-img-top');
-    imgEl.setAttribute("src", tartarget_API_Endpoint[i].product_img.replaceAll('"', ''));
+    imgEl.setAttribute("src", target_search_Results[i].product_img.replaceAll('"', ''));
    //adding card body
    //header
    var addcardboyEl = document.createElement('card-body');
    var addcardheaderEL= document.createElement('h5');
-   addcardheaderEL.textContent = tartarget_API_Endpoint[i].title.replaceAll('"', '');
+   addcardheaderEL.setAttribute("class","card-header")
+   addcardheaderEL.textContent = target_search_Results[i].title.replaceAll('"', '');
      //price
      var addcardpriceEL= document.createElement('p');
-     addcardpriceEL.textContent = `Sale price: ${tartarget_API_Endpoint[i].sale_price.replaceAll('"', '')} \nprimary price ${tartarget_API_Endpoint[i].primary_price.replaceAll('"', '')}`
+     addcardpriceEL.textContent = `Sale price: ${target_search_Results[i].sale_price.replaceAll('"', '')} \nprimary price ${target_search_Results[i].primary_price.replaceAll('"', '')}`
      //link
      var addcardLink = document.createElement('a');
-     addcardLink.setAttribute("href", tartarget_API_Endpoint[i].product_Link.replaceAll('"', ''));
+     addcardLink.setAttribute("href", target_search_Results[i].product_Link.replaceAll('"', ''));
      addcardLink.setAttribute("target", "_blank");
      addcardLink.textContent= "View on Site"
      //rating
@@ -76,8 +83,8 @@ function  cratecard(){
       ratingIconEL.setAttribute("id", "ratingIcon");
       ratingAreaEL.setAttribute("id", "rating");
       ratingIconEL.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
-      console.log(tartarget_API_Endpoint[i].product_ratin)
-      ratingAreaEL.textContent = tartarget_API_Endpoint[i].product_rating;
+      console.log(target_search_Results[i].product_ratin)
+      ratingAreaEL.textContent = target_search_Results[i].product_rating;
 
       addDivEl.appendChild(imgEl);
       addDivEl.appendChild(addcardboyEl);

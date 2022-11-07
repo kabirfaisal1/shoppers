@@ -60,7 +60,7 @@
         <div class="container mt-4" id="mainContainer">
             <div class="container mt-4" id="searchContainer" data-aos="flip-right">
                 <div class="card-header" id="cardHeader">
-                    <h3 id="myExperience" style="">Start Searching </h3>
+                    <h3 id="SearchHeader" style="">Start Searching </h3>
                 </div>
                 <div>
                     <form class="mb-4">
@@ -74,27 +74,24 @@
                         </div>
                         <div class="container mt-4" id="searchContainer">
                             <form class="mb-4">
-                                <div class="row">
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-check">
-                                            <input id="inputName" type="radio" value="Target" class="form-check-input">
-                                            <label for="target" id="storeOpt" class="form-check-label"
-                                                aria-required="true">Target</label>
-                                           
-                                        </div>
-                                        <div class="form-check">
-                                            <input id="inputName" type="radio" value="Walmart" class="form-check-input">
-                                            <label for="walmart" id="storeOpt" class="form-check-label"
-                                                aria-required="true">Walmart</label>
-                                            
-                                        </div>
-                                        <div class="form-check">
-                                            <input id="inputName" type="radio" value="Both" class="form-check-input">
-                                            <label for="both" id="storeOpt" class="form-check-label"
-                                                aria-required="true">Both</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="targetRadios" value="option1">
+                                    <label class="form-check-label" for="targetRadios">
+                                      Target
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="walmartRadios" value="option2" disabled>
+                                    <label class="form-check-label" for="walmartRadios">
+                                      Walmart
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="bothRadios" value="option3" disabled>
+                                    <label class="form-check-label" for="bothRadios">
+                                      Both
+                                    </label>
+                                  </div>
                             </form>
                         </div>
                         <div>
@@ -115,15 +112,18 @@
             <div class="card-header" id="cardHeader">
                 <h3 id="results-Title">This is what we found</h3>
             </div>
+            <div class="alert alert-danger" role="alert" id="search-Error">
+                Error: Can't search for blank input!! :(
+            </div>
             <div class="container row mt-4" id="fullResults" data-aos="zoom-in-up">
-          
-
-         </div>
+               
+            </div>
 
         </div>
 
     </main>
 
+    <!-- My script -->
     <!-- My script -->
     <script src="public/js/storeapi.js"></script>
 
