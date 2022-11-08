@@ -77,16 +77,17 @@ async function loginForm(event) {
     // If user's email and password matches the email and password in our system, then 
   // respond with a fetch request of current users in system to ensure that email & username are unique
     if (signupUsername && signupEmail && signupPassword) {
-      let user_check;
+      let user_check =[];
           // Query database
-      db.query(`SELECT * FROM userAccounts where username =${signupUsername} or email= ${signupEmail}`, function (err, results) {
+      db.query(`SELECT * FROM userAccounts where username =${signupUsername} or email= ${signupEmail}`
+      , function (err, results) {
         
-        return user_check =true;
+        return user_check.push(results);
       });
      
 
 
-      if(!user_check ==false){
+      if(user_check == null){
         const response = await fetch('/api/users/', {
           method: 'post',
           // turns username, email, and password into a JSON string 
