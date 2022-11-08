@@ -177,11 +177,7 @@ function stud(){
 
 //fetch request to save search on form submit
 async function saveSearch() {
-/* search input el
- Search.create({
-        product_name: req.body.product_name,
-        user_id: req.session.user_id
-    })*/
+
     const product_name = searchInputEl.value.trim();
     const response = await fetch('/api/searches/', {
       method: 'Post',
