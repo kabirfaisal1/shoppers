@@ -2,6 +2,20 @@
 // runs async function for the login form 
 // an async function returns a promise
 // https://www.w3schools.com/js/js_async.asp
+const mysql = require('mysql2');
+const env = require('.env');
+
+// Connect to database
+const db = mysql.createConnection(
+  {
+    host: 'localhost',
+    user: env.DB_USER,
+    password: env.DB_PASSWORD,
+    database: env.DB_NAME
+  },
+  console.log(`Connected to the shoppers_db database.`)
+);
+
 
 async function loginForm(event) {
     event.preventDefault();
@@ -63,22 +77,36 @@ async function loginForm(event) {
     // If user's email and password matches the email and password in our system, then 
   // respond with a fetch request of current users in system to ensure that email & username are unique
     if (signupUsername && signupEmail && signupPassword) {
-      const response = await fetch('/api/users/', {
-        method: 'post',
-        // turns username, email, and password into a JSON string 
-        body: JSON.stringify({
-          username: signupUsername,
-          email: signupEmail,
-          password: signupPassword
-        }),
-        headers: { 'Content-Type': 'application/json' }
+      let user_check;
+          // Query database
+      db.query(`SELECT * FROM userAccounts where username =${signupUsername} or email= ${signupEmail}`, function (err, results) {
+        
+        return user_check =true;
       });
-  
-      if (response.ok) {
-        document.location.replace('/');
-    // if the response wasn't successful, user will get an alert message indicating their info was incorrect 
-      } else {
-        alert(response.statusText);
+     
+
+
+      if(!user_check ==false){
+        const response = await fetch('/api/users/', {
+          method: 'post',
+          // turns username, email, and password into a JSON string 
+          body: JSON.stringify({
+            username: signupUsername,
+            email: signupEmail,
+            password: signupPassword
+          }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+    
+        if (response.ok) {
+          document.location.replace('/');
+      // if the response wasn't successful, user will get an alert message indicating their info was incorrect 
+        } else {
+          alert(response.statusText);
+        }
+      }
+      else{
+        console.log("Our record show that user name or email already exists");
       }
     }
   }
