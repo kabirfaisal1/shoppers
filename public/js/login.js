@@ -1,4 +1,4 @@
-
+// 
 // runs async function for the login form 
 // an async function returns a promise
 // https://www.w3schools.com/js/js_async.asp
