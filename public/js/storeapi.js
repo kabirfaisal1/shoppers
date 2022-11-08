@@ -1,15 +1,17 @@
+//const { Json } = require("sequelize/types/utils");
+
 var Target_Token="4324A15C75444BB7AA69766FA38667EF" ;
-var searchInputEL = document.querySelector("search-fild");
+var searchInputEl = document.querySelector("#search-field");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults')
 
-submitButtonEl.addEventListener('click',()=>{
-
-   target_API_Endpoint();
+submitButtonEl.addEventListener('click',(event)=>{
+  event.preventDefault();
+   //target_API_Endpoint();
 
  //stud();
 
-
+  saveSearch();
   
 });
 var target_search_Results= [];
@@ -172,3 +174,27 @@ function stud(){
 //     return error;
 //   });
 // }
+
+//fetch request to save search on form submit
+async function saveSearch() {
+/* search input el
+ Search.create({
+        product_name: req.body.product_name,
+        user_id: req.session.user_id
+    })*/
+    const product_name = searchInputEl.value.trim();
+    const response = await fetch('/api/searches/', {
+      method: 'Post',
+      body: JSON.stringify({
+        product_name
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      console.log(response);
+    } else {
+      alert(response.statusText);
+    }
+};
