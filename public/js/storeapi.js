@@ -87,6 +87,8 @@ function  cratecard(){
    var addcardheaderEL= document.createElement('h5');
    addcardheaderEL.setAttribute("class","card-header")
    addcardheaderEL.textContent = target_search_Results[i].title.replaceAll('"', '');
+   //ADDED IF CHECK LOGGIN TO LIMIT RESPONSE IF NOT LOGGED IN
+  if (loggedIn) {
      //price
      var addcardpriceEL= document.createElement('p');
      addcardpriceEL.textContent = `Sale price: ${target_search_Results[i].sale_price.replaceAll('"', '')} \nprimary price ${target_search_Results[i].primary_price.replaceAll('"', '')}`
@@ -104,14 +106,17 @@ function  cratecard(){
       ratingIconEL.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
       console.log(target_search_Results[i].product_ratin)
       ratingAreaEL.textContent = target_search_Results[i].product_rating;
-
+  }
       addDivEl.appendChild(imgEl);
       addDivEl.appendChild(addcardboyEl);
       addcardboyEl.appendChild(addcardheaderEL);
+      //NEED SAME IF CHECK
+    if (loggedIn) {
       addcardboyEl.appendChild(addcardpriceEL);
        ratingAreaEL.appendChild(ratingIconEL);
       addcardboyEl.appendChild(ratingAreaEL);
       addcardboyEl.append(addcardLink);
+    }
       search_resultsEl.appendChild(addDivEl);
       console.log(search_resultsEl);
   }
