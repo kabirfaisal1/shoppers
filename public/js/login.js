@@ -11,6 +11,8 @@ async function loginForm(event) {
 // Email and password are equal to the #current-email and #current-password query selector IDs respectively, using trim to remove whitespace from both sides of the email and password string
   const currentEmail = document.querySelector('#current-email').value.trim();
   const currentPassword = document.querySelector('#current-password').value.trim();
+  const loginError = document.querySelector('#login-error');
+
 
   // If user's email and password matches the email and password in our system, then 
 // respond with a fetch request of the user's email and password (their login data)
@@ -43,7 +45,7 @@ async function loginForm(event) {
 
       // if the response wasn't successful, user will get an alert message indicating their info was incorrect 
     } else {
-      alert(response.statusText);
+      loginError.style.setProperty('visibility', 'visible');
     }
   }
 }
@@ -58,6 +60,8 @@ async function signupForm(event) {
   const signupUsername = document.querySelector('#username').value.trim();
   const signupEmail = document.querySelector('#email').value.trim();
   const signupPassword = document.querySelector('#password').value.trim();
+  const signupError = document.querySelector('#signup-error');
+
 
 
   // If user's email and password matches the email and password in our system, then 
@@ -78,9 +82,9 @@ async function signupForm(event) {
       document.location.replace('/');
   // if the response wasn't successful, user will get an alert message indicating their info was incorrect 
     } else {
-      alert(response.statusText);
-    }
+        signupError.style.setProperty('visibility', 'visible');
   }
+}
 }
 
 // Adds submit event to the login form when the submit button is clicked
@@ -88,3 +92,4 @@ document.querySelector('.login-form').addEventListener('submit', loginForm);
 
 // Adds submit event to the signup form when the submit button is clicked
 document.querySelector('.signup-form').addEventListener('submit', signupForm);
+

@@ -13,25 +13,27 @@
           <!-- Login Form -->
           <form class="login-form">
 
-            <input type="text" id="login" id="current-email" class="fadeIn
-              second" name="login" placeholder="login">
-            <input type="text" id="password" id="current-password" class="fadeIn
+            <input type="text" id="current-email" class="fadeIn
+              second" name="login" placeholder="email">
+            <input type="text" id="current-password" class="fadeIn
               third" name="login" placeholder="password">
-            {{!-- <div>
-              <label for="current-email">email:</label>
-              <input type="text" id="current-email" />
-            </div>
-            <div>
-              <label for="current-password">password:</label>
-              <input type="password" id="current-password" />
-            </div> --}}
+        
             <div>
               <button type="submit">login</button>
             </div>
+           
+            <div id="login-error" class="alert alert-danger" role="alert">
+              
+<p> We're sorry, there is an error with your email and/or password. </p>
+            </div>
+
+            
+           
           </form>
-          <!-- Remind Passowrd -->
+          <!-- Remind Password -->
           <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a  class="underlineHover" 
+style="pointer-events: none;" href="#">Forgot Password? (Work in Progress)</a>
           </div>
 
         </div>
@@ -50,33 +52,21 @@
           <form class="signup-form">
 
 
-            <input type="text" id="username" id="current-email" class="fadeIn
-              second" name="login" placeholder="user name">
-            <input type="text" id="email" id="current-password" class="fadeIn
+            <input type="text" id="username"  class="fadeIn
+              second" name="login" placeholder="Your full name">
+            <input type="text" id="email" class="fadeIn
               third" name="login" placeholder="email">
-            <input type="text" id="password" id="current-email" class="fadeIn
+            <input type="text" id="password" class="fadeIn
               second" name="login" placeholder="password">
             <div>
               <button type="submit">Sign up</button>
             </div>
-            {{!-- <div>
-              <label for="username">username:</label>
-              <input type="text" id="username" />
+             <div id="signup-error" class="alert alert-danger" role="alert">
+              
+<p> Email address already in use. </br> You indicated you're a new customer, but an account already exists with the email address. </p>
+
             </div>
-            <div>
-              <label for="email">email:</label>
-              <input type="text" id="email" />
-            </div>
-            <div>
-              <label for="password">password:</label>
-              <input type="password" id="password" />
-            </div>
-            <div>
-              <button type="submit">signup</button>
-            </div>
-          </form>
-        </div>
-      </div> --}}
+
     </div>
 
  </div>
