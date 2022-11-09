@@ -60,8 +60,8 @@ async function loginForm(event) {
     const signupPassword = document.querySelector('#password').value.trim();
   
 
-    // If user's email and password matches the email and password in our system, then 
-  // respond with a fetch request of current users in system to ensure that email & username are unique
+    // If user's email and username are unique to our system, add them to our database
+
     if (signupUsername && signupEmail && signupPassword) {
       const response = await fetch('/api/users/', {
         method: 'post',
