@@ -46,15 +46,20 @@ router.get('/:id', (req, res) => {
 
 //create new search: /api/searches/
 router.post('/', (req, res) => {
-    Search.create({
-        product_name: req.body.product_name,
-        user_id: req.body.user_id
-    })
-        .then(dbData => res.json(dbData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    if (req.session.user_id) {
+        Search.create({
+            product_name: req.body.product_name,
+            user_id: req.session.user_id
+        })
+            .then(dbData => res.json(dbData))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    } else {
+        res.json({ message: 'Log in to save search' });
+        return;
+    }
 });
 
 //delete search by id: /api/searches/:id

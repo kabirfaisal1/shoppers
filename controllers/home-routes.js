@@ -18,9 +18,7 @@ router.get('/', (req, res) => {
         })
             .then(dbData => {
                 const loggedInUser = dbData.get({ plain: true });
-                console.log('==================');
-                console.log(loggedInUser);
-                console.log('==================');
+                
                 res.render('homepage', { 
                     loggedInUser,
                     loggedIn: req.session.loggedIn   
