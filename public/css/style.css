@@ -263,10 +263,10 @@ input[type=text]:focus {
   border-bottom: 2px solid #5fbae9;
 }
 
-#login-error {
+#login-error,#search-Error,#signup-error {
   visibility: hidden;
 }
 
-#signup-error {
+ /* {
   visibility: hidden;
-}
+} */

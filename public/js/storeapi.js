@@ -3,18 +3,20 @@
 var Target_Token="4324A15C75444BB7AA69766FA38667EF" ;
 var searchInputEl = document.querySelector("#search-field");
 var submitButtonEl = document.querySelector('#btnSubmit');
-var search_resultsEl=document.querySelector('#fullResults')
+var search_resultsEl=document.querySelector('#fullResults');
+var searchErrorEL = document.querySelector('#search-Error');
+
 
 
 
 submitButtonEl.addEventListener('click',(event)=>{
   event.preventDefault();
-  console.log(searchInputEL.value.trim());
-if(searchInputEL.value.trim() !=""){
+  console.log(searchInputEl.value.trim());
+if(searchInputEl.value.trim() !=""){
 
   searchErrorEL.style.setProperty("visibility", "hidden");
   
-  target_API_Endpoint(searchInputEL.value.trim());
+  target_API_Endpoint(searchInputEl.value.trim());
     //stud();
   }
   else{
