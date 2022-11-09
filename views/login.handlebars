@@ -1,35 +1,85 @@
+ <div class="container mt-4 ">
+
+    <div class="mb-4 mb-lg-0">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              id="icon" alt="User Icon" />
+          </div>
+
+          <!-- Login Form -->
+          <form class="login-form">
+
+            <input type="text" id="login" id="current-email" class="fadeIn
+              second" name="login" placeholder="login">
+            <input type="text" id="password" id="current-password" class="fadeIn
+              third" name="login" placeholder="password">
+            {{!-- <div>
+              <label for="current-email">email:</label>
+              <input type="text" id="current-email" />
+            </div>
+            <div>
+              <label for="current-password">password:</label>
+              <input type="password" id="current-password" />
+            </div> --}}
+            <div>
+              <button type="submit">login</button>
+            </div>
+          </form>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+
+        </div>
+      </div>
 
 
-<form class="login-form">
-  <div>
-    <label for="current-email">email:</label>
-    <input type="text" id="current-email" />
-  </div>
-  <div>
-    <label for="current-password">password:</label>
-    <input type="password" id="current-password" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="https://cdn-icons-png.flaticon.com/512/2037/2037710.png"
+              id="icon" alt="sign up Icon" />
+          </div>
 
-<form class="signup-form">
-  <div>
-    <label for="username">username:</label>
-    <input type="text" id="username" />
-  </div>
-  <div>
-    <label for="email">email:</label>
-    <input type="text" id="email" />
-  </div>
-  <div>
-    <label for="password">password:</label>
-    <input type="password" id="password" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
+          <form class="signup-form">
 
-<script src="/js/login.js"></script>
+
+            <input type="text" id="username" id="current-email" class="fadeIn
+              second" name="login" placeholder="user name">
+            <input type="text" id="email" id="current-password" class="fadeIn
+              third" name="login" placeholder="email">
+            <input type="text" id="password" id="current-email" class="fadeIn
+              second" name="login" placeholder="password">
+            <div>
+              <button type="submit">Sign up</button>
+            </div>
+            {{!-- <div>
+              <label for="username">username:</label>
+              <input type="text" id="username" />
+            </div>
+            <div>
+              <label for="email">email:</label>
+              <input type="text" id="email" />
+            </div>
+            <div>
+              <label for="password">password:</label>
+              <input type="password" id="password" />
+            </div>
+            <div>
+              <button type="submit">signup</button>
+            </div>
+          </form>
+        </div>
+      </div> --}}
+    </div>
+
+ </div>
+
+
+  <script src="/js/login.js"></script>

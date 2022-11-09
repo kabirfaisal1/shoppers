@@ -1,4 +1,64 @@
- <div class="container row mt-4" id="fullResults" data-aos="zoom-in-up">
-          
 
-</div>
+        <div class="container mt-4" id="mainContainer">
+            <div class="container mt-4" id="searchContainer" data-aos="flip-right">
+                <div class="card-header" id="cardHeader">
+                    <h3 id="SearchHeader" style="">Start Searching </h3>
+                </div>
+                <div>
+                    <form class="mb-4">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="input-group input-group-lg">
+                                    
+                                    <input id="search-fild" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Lets find the product">
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="container mt-4" id="searchContainer">
+                            <form class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="targetRadios" value="option1">
+                                    <label class="form-check-label" for="targetRadios">
+                                      Target
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="walmartRadios" value="option2" disabled>
+                                    <label class="form-check-label" for="walmartRadios">
+                                      Walmart
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="bothRadios" value="option3" disabled>
+                                    <label class="form-check-label" for="bothRadios">
+                                      Both
+                                    </label>
+                                  </div>
+                            </form>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-success
+                                        my-2
+                                        my-sm-0" id="btnSubmit" type="submit">Submit</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container mt-4" id="search" data-aos="zoom-in-up">
+           
+            <div class="card-header" id="cardHeader">
+                <h3 id="results-Title">This is what we found</h3>
+            </div>
+            <div class="alert alert-danger" role="alert" id="search-Error">
+                Error: Can't search for blank input!! :(
+            </div>
+            <div class="container row mt-4" id="fullResults" data-aos="zoom-in-up">
+               
+            </div>
+
+        </div>
