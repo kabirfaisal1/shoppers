@@ -1,35 +1,75 @@
+ <div class="container mt-4 ">
+
+    <div class="mb-4 mb-lg-0">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              id="icon" alt="User Icon" />
+          </div>
+
+          <!-- Login Form -->
+          <form class="login-form">
+
+            <input type="text" id="current-email" class="fadeIn
+              second" name="login" placeholder="email">
+            <input type="text" id="current-password" class="fadeIn
+              third" name="login" placeholder="password">
+        
+            <div>
+              <button type="submit">login</button>
+            </div>
+           
+            <div id="login-error" class="alert alert-danger" role="alert">
+              
+<p> We're sorry, there is an error with your email and/or password. </p>
+            </div>
+
+            
+           
+          </form>
+          <!-- Remind Password -->
+          <div id="formFooter">
+            <a  class="underlineHover" 
+style="pointer-events: none;" href="#">Forgot Password? (Work in Progress)</a>
+          </div>
+
+        </div>
+      </div>
 
 
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="https://cdn-icons-png.flaticon.com/512/2037/2037710.png"
+              id="icon" alt="sign up Icon" />
+          </div>
 
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
+          <form class="signup-form">
 
-<script src="/js/login.js"></script>
+
+            <input type="text" id="username"  class="fadeIn
+              second" name="login" placeholder="Your full name">
+            <input type="text" id="email" class="fadeIn
+              third" name="login" placeholder="email">
+            <input type="text" id="password" class="fadeIn
+              second" name="login" placeholder="password">
+            <div>
+              <button type="submit">Sign up</button>
+            </div>
+             <div id="signup-error" class="alert alert-danger" role="alert">
+              
+<p> Email address already in use. </br> You indicated you're a new customer, but an account already exists with the email address. </p>
+
+            </div>
+
+    </div>
+
+ </div>
+
+
+  <script src="/js/login.js"></script>

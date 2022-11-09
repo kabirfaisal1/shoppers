@@ -1,0 +1,25 @@
+{
+    "env":{
+        "browser": true,
+        "cypress/globals": true,
+        "es2021": true
+    },
+    "extends":[
+        "eslint:recommended",
+        "pluging:cypress/recommended"
+
+    ],
+    "overrides":[],
+    "parser": "esprima",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType":"module"
+    },
+    "plugins":["cypress", "@typescript-eslint"],
+    "rules":{
+        "cypress/no-assigning-return-values": "error",
+        "cypress/no-unnecessary-waiting": "disable",
+        "quotes": [2, "single", {"avoidEscape": true}],
+        "semi": "error"
+    }
+}
