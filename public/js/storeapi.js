@@ -6,6 +6,17 @@ var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl=document.querySelector('#fullResults');
 var searchErrorEL = document.querySelector('#search-Error');
 
+//use #login-message element to determine if user is logged in
+var loginMessage = document.querySelector('#login-message').innerHTML.trim();
+
+var isLoggedIn = function(messageText) {
+  if (messageText === "Log in to view product prices and rantings.") {
+    return false;
+  }
+    return true;
+};
+var loggedIn = isLoggedIn(loginMessage);
+
 
 
 

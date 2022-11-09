@@ -2,6 +2,13 @@
     <div class="container mt-4" id="searchContainer" data-aos="flip-right">
         <div class="card-header" id="cardHeader">
             <h3 id="myExperience">Search</h3>
+            <p id="login-message">
+                {{#if loggedIn}}
+                You are logged in as {{loggedInUser.username}}
+                {{else}}
+                Log in to view product prices and rantings.
+                {{/if}}
+            </p>
         </div>
         <div>
             <form class="mb-4">
@@ -88,10 +95,10 @@
         </ul>
     </div>
 </div>
-<script src="/js/storeapi.js"></script>
+
 {{/if}}
 <!-- ************************* -->
-
+<script src="/js/storeapi.js"></script>
 </main>
 
 
