@@ -10,7 +10,7 @@ var searchErrorEL = document.querySelector('#search-Error');
 var loginMessage = document.querySelector('#login-message').innerHTML.trim();
 
 var isLoggedIn = function(messageText) {
-  if (messageText === "Log in to view product prices and rantings.") {
+  if (messageText === "Log in to view product prices and ratings.") {
     return false;
   }
     return true;
