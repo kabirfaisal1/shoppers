@@ -41,6 +41,9 @@ if(searchInputEl.value.trim() !=""){
     searchErrorEl.style.setProperty("visibility", "visible");
     
   }
+  if (loggedIn){
+    saveSearch();
+  }
 
 });
 
@@ -84,7 +87,7 @@ async function saveSearch() {
     const product_name = searchInputEl.value.trim();
     const response = await fetch('/api/searches/', {
       method: 'Post',
-      body: ({
+      body: JSON.stringify({
         product_name
       }),
       headers: {
@@ -132,7 +135,6 @@ function cratecard(){
 
         productLinkEL.setAttribute("href", target_search_Results[i].product_Link.replaceAll('"',''));
         search_resultsEl.append(cards);
-        saveSearch();
       }else{
         search_resultsEl.append(cards);
         
