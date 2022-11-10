@@ -53,7 +53,7 @@ NOTE: if you are copying this repo all you have to do is run
 ```
 ## [User Story](#table-of-contents)
 ```
-ENTER HERE
+  I want to use a app where I can view price, in stock items of my search across multiple stores
 ```
 
 ## [Test case](#table-of-contents)
