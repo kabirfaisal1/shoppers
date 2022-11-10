@@ -75,6 +75,8 @@
 <div id="userInfo" class="container">
     <div class="card">
         <h5 class="card-header">Search History for {{loggedInUser.username}}</h5>
+        <!-- added user id number to card -->
+        <p class="card-header">(User id number: {{loggedInUser.id}})</p>
         <ul class="list-group list-group-flush">
             {{#if loggedInUser.searches.length}}
                 {{#each loggedInUser.searches as |search|}}
