@@ -47,6 +47,8 @@ router.get('/:id', (req, res) => {
 //create new search: /api/searches/
 router.post('/', (req, res) => {
     if (req.session.user_id) {
+        console.log(req.session.user_id);
+        console.log(req.body.product_name);
         Search.create({
             product_name: req.body.product_name,
             user_id: req.session.user_id
