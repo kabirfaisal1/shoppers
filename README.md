@@ -3,14 +3,12 @@
 # Table-of-Contents
   * [Deployed URL](#deployed-url)
   * [Workflow](#workflow)
-      * [UI Design](#ui-design)
       * [Database Design](#database-design)
   * [Git Repo](#git-repo)
   * [Dependency](#dependency)
   * [UserStory](#userstory)
-  * [Acceptance Criteria](#acceptance-criteria)
-  * [Application Invoked](#application-invoked)
   * [Test case](#test-case)
+    * [Test Dependency](#test-dependency)
   * [Screenshots](#screenshots)
 
 
@@ -20,24 +18,16 @@
 ```
 ENTER HERE
 ```
-To Open POC
-1. CD to the shoppers project
-2. run
-```
-  open -a 'google chrome' POS.html
-```
+
 ## [Workflow](#table-of-contents)
 1. Log in
-![Image at  Log in workflow](./images/LogIn.png)
+![Image at  Log in workflow](/public/images/LogIn.png)
 2. Search
-![Image at  search in workflow](./images/Search.png)
+![Image at  search in workflow](/public/images/Search.png)
 
-### [UI Design](#table-of-contents)
-
-TBD
 
 ### [Database Design](#table-of-contents)
-![Image at  database schema](./images/dbschema.png)
+![Image at  database schema](/public/images/dbschema.png)
 
 ## [Git Repo](#table-of-contents)
 ```
@@ -46,6 +36,9 @@ https://github.com/kabirfaisal1/shoppers.git
 
 ## [Dependency](#table-of-contents)
 ```
+NOTE: if you are copying this repo all you have to do is run 
+     -npm -i
+     and you will get all the packages below
     1. node.js (npm install -g npm) on your system
     2. npm i mysql
     3. npm i express
@@ -53,6 +46,7 @@ https://github.com/kabirfaisal1/shoppers.git
     5. npm i dotenv
     6. npm i sequelize
     7. npm install cypress --save-dev (in app_Test folder) 
+    8. npm i dotenv
 
     opt.
     - npm i nodemon (help you test live without killing server. CLI: nodemon server.js)
@@ -62,16 +56,9 @@ https://github.com/kabirfaisal1/shoppers.git
 ENTER HERE
 ```
 
-## [Acceptance Criteria](#table-of-contents)
-```
-ENTER HERE
-```
-
-## [Application Invoked](#table-of-contents)
-```
-ENTER HERE
-```
 ## [Test case](#table-of-contents)
+![Image at testcase](/public/images/testcase.png)
+## [Test Dependency](#table-of-contents)
 1. start the server from the root
 ```
   npm start server
@@ -102,3 +89,11 @@ ENTER HERE
  npx cypress run
 ```
 ## [Screenshots](#table-of-contents)
+1. home page page
+![Image at home page](/public/images/homepage.png)
+2. log-in page
+![Image at log in page](/public/images/logingPage.png)
+3. log-in page
+![Image at user homepage](/public/images/loggedHomepage.png)
+4. log-in page
+![Image at after search](/public/images/afterSearch.png)
