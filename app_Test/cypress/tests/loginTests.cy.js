@@ -1,7 +1,9 @@
 describe('Test Log in Page', () => {
-  it('Should be able to login successful', () => {
+  beforeEach(() => {
     cy.visit('http://localhost:3001/login');
-    //cy.get('#contact-us').click({force: true})
+})
+  it('Should be able to login successful', () => {
+   
     //email
     cy.get('[id="current-email"]').should('be.visible').type('testing12@gmail.com');
     //passed
@@ -9,12 +11,11 @@ describe('Test Log in Page', () => {
     //click on log in
     cy.get('[id="submit"]').should('be.visible').click();
     //verify you are logged in 
-    cy.get('[id=logout]').should('be.visible')
+    cy.get('[id=logout]').should('be.visible').click();
   });
 
   it('Should be able to verify error messages when failed to log in', () => {
-    cy.visit('http://localhost:3001/login');
-    //cy.get('#contact-us').click({force: true})
+ 
     //email
     cy.get('[id="current-email"]').should('be.visible').type('testing12@gmail.com');
     //passed

@@ -10,7 +10,7 @@ describe('Test Sign up Page', () => {
       //click on log in
       cy.get('[id="sign-up"]').should('be.visible').click();
       //verify you are logged in 
-      cy.get('[id=logout]').should('be.visible')
+      cy.get('[id=logout]').should('be.visible').click();
     });
   
     it('Should be able to verify log in due duplicate email', () => {
@@ -24,7 +24,7 @@ describe('Test Sign up Page', () => {
       //click on submit
       cy.get('[id="sign-up"]').should('be.visible').click();
       //verify you are logged in 
-      cy.get('[id=signup-error]').should('be.visible').invoke('text').should('include',"Email address already in use")
+      cy.get('[id=signup-error]').should('be.visible').invoke('text').should('include',"Email address already in use");
     });
   
   });

@@ -78,6 +78,7 @@ function  cratecard(){
   for (var i = 0; i < target_search_Results.length; i++) {
     var addDivEl = document.createElement('div');
     addDivEl.classList.add('card');
+    addDivEl.setAttribute("id",`card-${i}`)
     var imgEl = document.createElement('img')
     imgEl.classList.add('card-img-top');
     imgEl.setAttribute("src", target_search_Results[i].product_img.replaceAll('"', ''));
@@ -86,11 +87,13 @@ function  cratecard(){
    var addcardboyEl = document.createElement('card-body');
    var addcardheaderEL= document.createElement('h5');
    addcardheaderEL.setAttribute("class","card-header")
+   addcardheaderEL.setAttribute("id",`card-header-${i}`)
    addcardheaderEL.textContent = target_search_Results[i].title.replaceAll('"', '');
    //ADDED IF CHECK LOGGIN TO LIMIT RESPONSE IF NOT LOGGED IN
   if (loggedIn) {
      //price
      var addcardpriceEL= document.createElement('p');
+     addcardpriceEL.setAttribute("id",`price`)
      addcardpriceEL.textContent = `Sale price: ${target_search_Results[i].sale_price.replaceAll('"', '')} \nprimary price ${target_search_Results[i].primary_price.replaceAll('"', '')}`
      //link
      var addcardLink = document.createElement('a');
@@ -102,7 +105,7 @@ function  cratecard(){
       var ratingAreaEL = document.createElement('p');
       var ratingIconEL = document.createElement('img');
       ratingIconEL.setAttribute("id", "ratingIcon");
-      ratingAreaEL.setAttribute("id", "rating");
+      ratingAreaEL.setAttribute("id", `rating${i}`);
       ratingIconEL.setAttribute("src", "https://cdn3.iconfinder.com/data/icons/ratings-1/87/Circle_-_4.5_Star-512.png");
       console.log(target_search_Results[i].product_ratin)
       ratingAreaEL.textContent = target_search_Results[i].product_rating;
@@ -121,6 +124,28 @@ function  cratecard(){
       console.log(search_resultsEl);
   }
 }
+
+
+
+//fetch request to save search on form submit
+async function saveSearch() {
+
+    const product_name = searchInputEl.value.trim();
+    const response = await fetch('/api/searches/', {
+      method: 'Post',
+      body: JSON.stringify({
+        product_name
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      console.log(response);
+    } else {
+      alert(response.statusText);
+    }
+};
 
 function stud(){
   var TestDummytartarget_API_Endpoint={
@@ -175,51 +200,3 @@ function stud(){
 
   }
 }
-
-// function walmart_API_Endpoint(){
-
-// var queryItem = `https://api.redcircleapi.com/request?api_key=${Target_Token}&search_term=xbox&type=search&output=json`;
-// //  var queryItem = `https://api.redcircleapi.com/request?${params}`;
-// fetch(queryItem, { method: 'GET' }) //fetching all related area for current location
-// .then((response) => response.json()).then((data) => {
-//       var i =0
-//      do{
-//       var target_search_Results={
-//           product_img: JSON.stringify(data.search_results[i].product['main_image']),
-//           title: JSON.stringify(data.search_results[i].product['title']),
-//           product_Link: JSON.stringify(data.search_results[i].product['link']),
-//           primary_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
-//           sale_price: JSON.stringify(data.search_results[i].offers.primary['symbol']+' '+data.search_results[i].offers.primary['price']),
-//       }
-//       tartarget_API_Endpoint.push(target_search_Results);
-//        i++;
-//      }
-//      while(i<data.search_results.length)
-//      console.log(tartarget_API_Endpoint)
-
-//   })
-// .catch((error) => {
-//     console.error('Error:', error);
-//     return error;
-//   });
-// }
-
-//fetch request to save search on form submit
-async function saveSearch() {
-
-    const product_name = searchInputEl.value.trim();
-    const response = await fetch('/api/searches/', {
-      method: 'Post',
-      body: JSON.stringify({
-        product_name
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    if (response.ok) {
-      console.log(response);
-    } else {
-      alert(response.statusText);
-    }
-};
