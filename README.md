@@ -97,4 +97,8 @@ ENTER HERE
 * Select chrome
   *  Click on start E2E testing in chrome (you will see new chrome open next to cy app)
 7. Select the test case you want to run
+8. OR run cypress headless
+```
+ npx cypress run
+```
 ## [Screenshots](#table-of-contents)
