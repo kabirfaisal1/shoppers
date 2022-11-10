@@ -2,11 +2,11 @@
 
 # Table-of-Contents
   * [Deployed URL](#deployed-url)
+  * [UserStory](#userstory)
   * [Workflow](#workflow)
       * [Database Design](#database-design)
   * [Git Repo](#git-repo)
   * [Dependency](#dependency)
-  * [UserStory](#userstory)
   * [Test case](#test-case)
     * [Test Dependency](#test-dependency)
   * [Screenshots](#screenshots)
@@ -17,6 +17,11 @@
 ## [Deployed URL](#table-of-contents)
 ```
 ENTER HERE
+```
+
+## [User Story](#table-of-contents)
+```
+  I want to use a app where I can view price, in stock items of my search across multiple stores
 ```
 
 ## [Workflow](#table-of-contents)
@@ -50,10 +55,6 @@ NOTE: if you are copying this repo all you have to do is run
 
     opt.
     - npm i nodemon (help you test live without killing server. CLI: nodemon server.js)
-```
-## [User Story](#table-of-contents)
-```
-  I want to use a app where I can view price, in stock items of my search across multiple stores
 ```
 
 ## [Test case](#table-of-contents)
