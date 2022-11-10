@@ -67,8 +67,10 @@
             <div class="alert alert-danger" role="alert" id="search-Error">
                 Error: Can't search for blank input!! 
             </div>
-            <div class="container row mt-4" id="fullResults" data-aos="zoom-in-up"> </div>
-                <template class="container row mt-4" id="fullResults-template" data-aos="zoom-in-up">
+            <div class="row" id="fullResults" data-aos="zoom-in-up"> 
+
+            </div>
+                <template class="col-sm-3" id="fullResults-template" data-aos="zoom-in-up">
                     <div class="card">
                         <img class="card-img-top" id="product-img">
                         <div class="card-body" id="cardBody">
@@ -87,7 +89,9 @@
                             </ul>
 
                         </div>
-                        <a class="btn btn-primary" id="product-link">Visit Product Site</a>
+                        <div class="card-footer">
+                        <a class="btn btn-primary" id="product-link">View Product</a>
+                        </div>
 
                     </div>
 

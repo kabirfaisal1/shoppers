@@ -26,7 +26,7 @@ var loggedIn = isLoggedIn(loginMessage);
 submitButtonEl.addEventListener('click',(event)=>{
  event.preventDefault();
   console.log(searchInputEl.value.trim());
-  target_search_Results= null;
+  target_search_Results= [];
   // target_search_Results=[];
 if(searchInputEl.value.trim() !=""){
 
