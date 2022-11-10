@@ -5,7 +5,8 @@ var searchInputEl = document.querySelector("#search-field");
 var submitButtonEl = document.querySelector('#btnSubmit');
 var search_resultsEl =document.querySelector('#fullResults');
 
-var searchErrorEL = document.querySelector('#search-Error');
+var searchErrorEl = document.querySelector('#search-Error');
+
 
 //use #login-message element to determine if user is logged in
 var loginMessage = document.querySelector('#login-message').innerHTML.trim();
@@ -27,16 +28,17 @@ submitButtonEl.addEventListener('click',(event)=>{
  event.preventDefault();
   console.log(searchInputEl.value.trim());
   target_search_Results= [];
+  
   // target_search_Results=[];
 if(searchInputEl.value.trim() !=""){
 
-  searchErrorEL.style.setProperty("visibility", "hidden");
+  searchErrorEl.style.setProperty("visibility", "hidden");
   
   target_API_Endpoint(searchInputEl.value.trim());
   // stud(searchInputEl.value.trim());
   }
   else{
-    searchErrorEL.style.setProperty("visibility", "visible");
+    searchErrorEl.style.setProperty("visibility", "visible");
     
   }
 
@@ -99,9 +101,13 @@ async function saveSearch() {
 
 function cratecard(){
   var search_results_templateEl=document.querySelector('#fullResults-template');
-  // const cardBodyEl = document.querySelector("#cardBody")
+  console.log(search_resultsEl.childNodes.length);
+ 
+  while (search_resultsEl.hasChildNodes()) {
+    search_resultsEl.removeChild(search_resultsEl.lastChild)
+  }
   for (var i = 0; i < target_search_Results.length; i++) {
-
+ 
       const cards = search_results_templateEl.content.cloneNode(true).children[0];
       const productImgEl = cards.querySelector("#product-img");
       const productNameEl = cards.querySelector("#product-name");
@@ -109,10 +115,12 @@ function cratecard(){
       const productPrimaryPriceEl = cards.querySelector("#primary-price");
       const productRatingImgEl = cards.querySelector("#product-rating");
       const productLinkEL = cards.querySelector("#product-link");
-      console.log(target_search_Results[i].product_img);
+      
       productImgEl.setAttribute("src", target_search_Results[i].product_img.replaceAll('"', ''));
       productNameEl.textContent = target_search_Results[i].title.replaceAll('"','');
-     
+    //  if(cards>=1){
+    //   search_resultsEl.append(cards.empty());
+    //  };
       if (loggedIn) {
         productSalePriceEl.textContent = `Sale Price: ${target_search_Results[i].sale_price.replaceAll('"','')}`;
         
