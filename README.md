@@ -10,7 +10,9 @@
   * [UserStory](#userstory)
   * [Acceptance Criteria](#acceptance-criteria)
   * [Application Invoked](#application-invoked)
+  * [Test case](#test-case)
   * [Screenshots](#screenshots)
+
 
 
  
@@ -50,6 +52,7 @@ https://github.com/kabirfaisal1/shoppers.git
     4. npm i path
     5. npm i dotenv
     6. npm i sequelize
+    7. npm install cypress --save-dev (in app_Test folder) 
 
     opt.
     - npm i nodemon (help you test live without killing server. CLI: nodemon server.js)
@@ -68,5 +71,30 @@ ENTER HERE
 ```
 ENTER HERE
 ```
-
+## [Test case](#table-of-contents)
+1. start the server from the root
+```
+  npm start server
+```
+2. open second terminal go to app_test folder
+```
+  cd /your/project/path (to app_Test)
+```
+3. install npm
+```
+  npm install
+```
+4. install cypress
+```
+  npm install cypress --save-dev
+```
+5. Open cypress
+```
+  npx cypress open
+```
+6. From cypress dashboard
+* Select e2e
+* Select chrome
+  *  Click on start E2E testing in chrome (you will see new chrome open next to cy app)
+7. Select the test case you want to run
 ## [Screenshots](#table-of-contents)

@@ -23,10 +23,10 @@ screenshotOnRunFailure: true,
 screenshotsFolder:"screenshots"
 },
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-      return require("./cypress/plugins/index.js")(on, config)
-    },
+    // setupNodeEvents(on, config) {
+    //   // implement node event listeners here
+    //   return require("./cypress/plugins/index.js")(on, config)
+    // },
     baseUrl: "http://localhost:3001/login",
     specPattern: "cypress/tests/**/*.cy.{js,jsx}"
   },
