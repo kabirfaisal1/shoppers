@@ -74,23 +74,18 @@
 <!-- ADDING JUST TO TEST HOME ROUTES -->
 <div class="container">
     <div class="card">
-        <h5 class="card-header">Logged in user data and user's past searches</h5>
+        <h5 class="card-header">Search History for {{loggedInUser.username}}</h5>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <p>user id: {{loggedInUser.id}}</p>
-            </li>
-            <li class="list-group-item">
-                <p>user name: {{loggedInUser.username}}</p>
-            </li>
-            <li class="list-group-item">
-                <p>user email: {{loggedInUser.email}}</p>
-            </li>
             {{#if loggedInUser.searches.length}}
                 {{#each loggedInUser.searches as |search|}}
                 <li class="list-group-item">
-                    <p>search id: {{search.id}}, product name: {{search.product_name}}</p>
+                    <p>Product name: {{search.product_name}} on {{search.created_at}}</p>
                 </li>
                 {{/each}}
+            {{else}}
+                <li class="list-group-item">
+                    <p>No searches yet!</p>
+                </li>
             {{/if}}
         </ul>
     </div>

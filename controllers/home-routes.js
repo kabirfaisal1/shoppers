@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
             attributes: ['id','username','email'],
             include: {
                 model: Search,
-                attributes: ['id','product_name']
+                attributes: ['id','product_name','created_at']
             }
         })
             .then(dbData => {
